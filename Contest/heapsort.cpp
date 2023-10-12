@@ -3,8 +3,6 @@
 
 using namespace std;
 
-// da provare con l'input di Coding Contest
-
 template<class T>class MaxHeap{
     private:
         T* heap;
