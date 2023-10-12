@@ -4,8 +4,6 @@
 
 using namespace std;
 
-//da povare con input Coding Contest
-
 template<class T> class MinHeap{
     private:
         T* heap;
