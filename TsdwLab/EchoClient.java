@@ -34,7 +34,7 @@ public class EchoClient {
             // ciclo di lettura da tastiera, invio al server e stampa risposta
             while (true) {
                 userInput = stdIn.readLine();
-                out.println(userInput);
+                out.println(userInput); //quello che manda al server
             if (userInput.equals(EchoServer.SECRET)) {
                 System.out.println("Killing Server with SECRET: " + in.readLine());
                 break;

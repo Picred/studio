@@ -3,13 +3,13 @@ import java.net.*;
 
 public class EchoServer {
     public static final int PORT = 1050; // Server port
-    public static final String SECRET = "mischief-managed"; // Server secret
+    public static final String SECRET = "mischief-managed"; // Server secret per chiudere la socket
 
     public static void main(String[] args) {
-        ServerSocket serverSocket = null;
+        ServerSocket serverSocket = null; 
         try {
             serverSocket = new ServerSocket(PORT);
-        } catch (IOException e) { // non c'è la porta libera, ovvero c'è un altro server attivo
+        } catch (IOException e) { // non c'è la porta libera, ovvero c'è un altro server attivo o serve l'autorizzazione
             e.printStackTrace();
         }
         System.out.println("EchoServer: started ");
@@ -18,7 +18,7 @@ public class EchoServer {
         BufferedReader in=null;
         PrintWriter out=null;
         try {
-            // Waits until connection is available
+            // Waits until connection is available (bloccante)
             clientSocket = serverSocket.accept(); //accept() restituisce un Socket quando accetta la connessione. E' bloccante
             System.out.println("Connection accepted: "+ clientSocket);
 
