@@ -1,1 +1,1 @@
-heapsort:
+countingsort:
