@@ -1,1 +1,2 @@
+LDLIBS += -OpenCL
 vecinit:
