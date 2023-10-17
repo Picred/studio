@@ -1,7 +1,7 @@
 /*vecinit.c*/
 #include <stdio.h>
 #include <stdlib.h>
-// #include "ocl_boiler.h"
+#include "ocl_boiler.h"
 #define CL_TARGET_OPENCL_VERSION 120 //versione di opencl si vuole usare per capire le API disponibili
 
 void vecinit_k(int i, int *array){ //parte device
