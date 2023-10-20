@@ -77,7 +77,7 @@ int main(int argc, char*argv[]){
     cl_int err;
     // memory management
     cl_mem d_array = clCreateBuffer(ctx,CL_MEM_WRITE_ONLY,memsize, NULL, &err); // il flag serve per indicare in che modo si vuole usare il buffer. ..READ_WRITE, ..READ_ONLY, ..WRITE_ONLY ecc. 
-
+    
     //check d_array
     ocl_check(err, "d_array creation failed\n");
 

@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
 	printf("read: %.2g ms\n", read_ms);
 
 	ret = verify(nels, h_array);
-
+	
 	clReleaseKernel(vecinit_k);
 	clReleaseMemObject(d_array);
 	clReleaseProgram(prog);
