@@ -1,0 +1,2 @@
+LDLIBS += -lOpenCL
+vecinit:
