@@ -108,7 +108,7 @@ int main(int argc, char*argv[]){
     
     double vecinit_ms = runtime_ms(vecinit_evt);
     double read_ms = runtime_ms(read_evt);
-    printf("init: %.2g ms\n", vecinit_ms);
+    printf("init: %.2g ms\n", vecinit_ms); //trasferimento dati fra host e device è più alto del tempo di esecuzione
     printf("read: %.2g ms\n", read_ms);
 
     //TODO: Liberare tutte le risorse usate su device

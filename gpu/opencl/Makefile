@@ -1,2 +1,2 @@
 LDLIBS += -lOpenCL
-vecinit:
+all: vecinit_prof vecinit_map
