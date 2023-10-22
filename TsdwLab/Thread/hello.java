@@ -1,5 +1,4 @@
 // Inspired by www.dmi.unict.it/tramonta/lessons/sd/jthread.tar
-import java.util.Random;
 
 public class hello {
     public static void main(String[] args) throws InterruptedException {
