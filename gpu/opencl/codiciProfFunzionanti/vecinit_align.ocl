@@ -1,0 +1,9 @@
+void kernel vecinit(global int *array, int nels)
+{
+	int i = get_global_id(0);
+
+	// if (i == 0) printf("lws: %u\n", (uint)get_local_size(0));
+
+	if (i < nels)
+		array[i] = i;
+}
