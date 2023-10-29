@@ -2,7 +2,7 @@
 #include <fstream>
 
 using namespace std;
-// da testare con input di C.contest
+
 void countingsort(int *A, int n, ofstream &out){
     int max = A[0];
     int min = A[0];
