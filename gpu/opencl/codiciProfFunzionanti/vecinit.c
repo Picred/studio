@@ -24,7 +24,8 @@ cl_event vecinit(cl_command_queue que, cl_kernel vecinit_k,
 	return vecinit_evt;
 }
 
-int verify(int nels, int const *array){
+int verify(int nels, int const *array)
+{
 	for (int i = 0; i < nels; ++i) {
 		if (array[i] != i) {
 			fprintf(stderr, "%d: %d != %d\n",
@@ -35,7 +36,8 @@ int verify(int nels, int const *array){
 	return 0;
 }
 
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
 	if (argc != 2) {
 		fprintf(stderr, "%s nels\n", argv[0]);
 		exit(2);
@@ -70,7 +72,8 @@ int main(int argc, char* argv[]){
 	cl_int err;
 
 	/* Memory management */
-	cl_mem d_array = clCreateBuffer(ctx, CL_MEM_WRITE_ONLY, memsize, NULL, &err);
+	cl_mem d_array = clCreateBuffer(ctx, CL_MEM_WRITE_ONLY,
+		memsize, NULL, &err);
 	ocl_check(err, "d_array creation failed\n");
 
 	/* Get kernel(s) that we want to run */
