@@ -1,4 +1,4 @@
-package Thread.GiocoOca;
+package GiocoOca;
 /* Itinere */
 public class App{
     public static void main(String[] args) throws Exception{

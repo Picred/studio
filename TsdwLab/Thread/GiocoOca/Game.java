@@ -1,4 +1,4 @@
-package Thread.GiocoOca;
+package GiocoOca;
 
 public class Game {
     int round = 0; // variabile condivisa

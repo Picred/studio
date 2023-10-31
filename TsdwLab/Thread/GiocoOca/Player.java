@@ -1,4 +1,4 @@
-package Thread.GiocoOca;
+package GiocoOca;
 
 public class Player extends Thread {
     int pos = 0; // Posizione del giocatore
