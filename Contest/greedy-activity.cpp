@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// Da verificare con input di CContest
 
 class Activity{
     private:
@@ -33,7 +32,7 @@ void solve(int n, ifstream &in, ofstream&out){
     for(int i=0; i<n; i++){
         int s;
         int f;
-        in >> tmp >> s >> tmp >> f >> tmp;
+        in >> tmp >> s >> f >> tmp;
         acts[i] = new Activity(s,f);
     }
 

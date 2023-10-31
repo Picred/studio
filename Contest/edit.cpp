@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// Da testare con input di CContest
 
 int min(int a, int b, int c){
     int min = a;
@@ -33,7 +32,7 @@ void solve(int n, int m, string w1, string w2, ifstream&in, ofstream& out){
         }
     }
 
-    cout << M[n][m] << endl;
+    out << M[n][m] << endl;
 }
 
 int main(){
