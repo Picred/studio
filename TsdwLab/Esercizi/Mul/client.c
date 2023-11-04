@@ -19,7 +19,7 @@ int main(void){
 
     remote_addr.sin_family = AF_INET;
     remote_addr.sin_port = htons(7777);
-    remote_addr.sin_addr.s_addr = inet_addr("0.0.0.0");
+    remote_addr.sin_addr.s_addr = inet_addr("0.0.0.0"); //static version
 
     if((connect(sockfd, (struct sockaddr*)&remote_addr, len)) < 0){
         perror("connect");
