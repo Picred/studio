@@ -15,7 +15,7 @@ public class Shared{
         return this.turn;
     }
 
-    public synchronized void sharedWait() throws InterruptedException{
+    public void sharedWait() throws InterruptedException{
         wait();
     }
 
