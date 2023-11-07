@@ -1,13 +1,19 @@
-public class Main{
-    public static void main(String[] args) {
-        Shared shared = new Shared();
-        Thread t1 = new MyThread(1, shared);
-        Thread t2 = new MyThread(2, shared);
-        Thread t3 = new MyThread(3, shared);
+import java.util.List;
+import java.util.ArrayList;
 
-        t1.start();
-        t2.start();
-        t3.start();
-        // check output, mai runnato
+public class Main{
+    public static void main(String[] args) throws InterruptedException{
+        Shared shared = new Shared();
+        List<Thread> threads = new ArrayList<>(3);
+
+        for(int i=1; i<=3; i++)
+            threads.add(new MyThread(i,shared));
+
+        for(Thread t : threads)
+            t.start();
+
+        for(Thread t : threads)
+            t.join();
+        System.out.println("[MAIN]: valore finale di sample: " + shared.getSample());
     }
 }

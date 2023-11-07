@@ -12,16 +12,4 @@ public class Shared{
     public synchronized void setSample(int k){
         sample = k;
     }
-
-    public synchronized void notifySh(){
-        notify();
-    }
-
-    public synchronized void waitSh(){
-        try{
-            wait();
-        } catch(InterruptedException e){
-            e.printStackTrace();
-        }
-    }
 }

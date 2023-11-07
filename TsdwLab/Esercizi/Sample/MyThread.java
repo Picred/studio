@@ -16,10 +16,12 @@ public class MyThread extends Thread{
         while(true){
             this.val = rand.nextInt(81) + 10;
 
-            if(val == shared.getSample()) break;
+            System.out.println("Sono il thread " + this.tid + " : sample valeva " + shared.getSample() + ", adesso vale " + val);
+            if(val == shared.getSample()) 
+                break;
+                
             shared.setSample(val);
 
-            System.out.println("Sono il thread " + this.tid + " : sample valeva " + shared.getSample() + ", adesso vale " + val);
         }
 
         System.out.println("T" + tid + " termino...");
