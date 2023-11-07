@@ -5,9 +5,15 @@ public class Shared{
         this.n = 0;
     }
 
-    public /* synchronized */ void sleepSh(int dur) throws InterruptedException{
+    public void sleepSh(int dur) throws InterruptedException{
         Thread.sleep(dur);
     }
 
-    
+    public int getN(){
+        return this.n;
+    }
+
+    public synchronized void setN(int k){
+        this.n = k;
+    }
 }
