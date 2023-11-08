@@ -10,9 +10,8 @@ import java.util.ArrayList;
 
 public class Server{
     private static final int PORT = 8080;
-    private static Database database = Database.getInstance();
     private static int connections = 0;
-    private static int maxConnections = 3;
+    private static Database database = Database.getInstance();
     private static List<Thread> threads = new ArrayList<>();
 
     public static void main(String[] args){
@@ -24,50 +23,33 @@ public class Server{
             System.out.println("ServerSocket");
             e.printStackTrace();
         }
-
+        System.out.println("Starting: " + serverSocket);
         BufferedReader in = null;
         PrintWriter out = null;
         Socket clientSocket = null;
-        while(true){
+        while(connections < 3){
             try{
-                if(connections < maxConnections){
-                    clientSocket = serverSocket.accept();
-                    in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                    out = new PrintWriter(clientSocket.getOutputStream(), true);
-                    out.println("ciao");
-                    threads.add(new SubServer(clientSocket, in, out));
-                    threads.get(threads.size() - 1).start();
-
-                    connections++;
-                    //gestisci fine while del server, quindi break
-                }
+                clientSocket = serverSocket.accept();
+                connections++;
+                System.out.println("Connections: " + connections);
+                in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                out = new PrintWriter(clientSocket.getOutputStream(), true);
+                threads.add(new SubServer(clientSocket, in, out));
+                threads.get(threads.size() - 1).start();
+                //gestisci fine while del server, quindi break
             }catch(IOException e){
                 System.out.println("accept");
                 e.printStackTrace();
             }
-
-            //wait all threads before finish
-
-            for(Thread t : threads){
-                try{
-                    t.join();
-                } catch(InterruptedException e){
-                    System.out.println("join");
-                    e.printStackTrace();
-                }
-            }
-
-            System.out.println("MainServer closing..");
+        }
+        for(Thread t : threads){
             try{
-                in.close();
-                out.close();
-                serverSocket.close();
-                clientSocket.close();
-            } catch(IOException e){
-                System.out.println("close");
+                t.join();
+            } catch(InterruptedException e){
+                System.out.println("join");
                 e.printStackTrace();
             }
-
         }
+        System.out.println("MainServer closing..");
     }
 }

@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
@@ -16,5 +17,12 @@ public class SubServer extends Thread{
     
     @Override
     public void run(){
+        out.println("Pippo");
+
+        try{
+            clientSocket.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }
