@@ -1,8 +1,12 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class Server{
     private static final int PORT = 8080;
@@ -27,12 +31,14 @@ public class Server{
         while(true){
             try{
                 if(connections < maxConnections){
-                    clientScket = serverSocket.accept();
-                    out = new BufferedReader(new InputStreamReader(clientSocket.getOutputStream()));
-                    in = new PrintWriter(clientSocket.getInputStream(), true);
-
+                    clientSocket = serverSocket.accept();
+                    in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                    out = new PrintWriter(clientSocket.getOutputStream(), true);
+                    out.println("ciao");
                     threads.add(new SubServer(clientSocket, in, out));
-                    // start(?) how to start. How start only this thread??? 
+                    threads.get(threads.size() - 1).start();
+
+                    connections++;
                     //gestisci fine while del server, quindi break
                 }
             }catch(IOException e){
@@ -43,10 +49,15 @@ public class Server{
             //wait all threads before finish
 
             for(Thread t : threads){
-                t.join();
+                try{
+                    t.join();
+                } catch(InterruptedException e){
+                    System.out.println("join");
+                    e.printStackTrace();
+                }
             }
 
-            System.outprintln("MainServer closing..");
+            System.out.println("MainServer closing..");
             try{
                 in.close();
                 out.close();

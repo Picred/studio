@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.net.Socket;
 
 public class SubServer extends Thread{
     private Socket clientSocket;
@@ -15,6 +16,5 @@ public class SubServer extends Thread{
     
     @Override
     public void run(){
-
     }
 }

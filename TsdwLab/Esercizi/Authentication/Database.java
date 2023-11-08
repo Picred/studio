@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 public class Database{
     private static Database instance;
-    Map<String,String> userPassword;
+    private Map<String,String> userPassword;
 
     private Database(){
         this.userPassword = new HashMap<>();
