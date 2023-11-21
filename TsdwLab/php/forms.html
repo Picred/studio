@@ -1,0 +1,47 @@
+In questa pagina si illustra il funzionamento dei form.
+<hr>
+Col bottone <code>submit</code> sotto a sinistra viene inviato al server un messaggio POST verso la URI 
+<code>hello.html</code>.
+<br>
+Nel messaggio viaggiano i parametri/dati del form. 
+<br>
+Possono essere visualizzati con l'inspector
+di Firefox (consiglio: nel filtro "imbuto", inserire <code><b>-</b>favicon</code>).
+<br><br>
+NB: Il server, alla URI <code>hello.html</code>, non ha logica che possa usare i dati del form.
+<hr>
+Col bottone <code>submit</code> sotto a sinistra viene inviato al server un messaggio POST verso la URI 
+<code>hello.html</code>.
+<hr>
+<table>
+<tr>
+<td>
+<form method="POST" action="hello.html">
+
+   Calciatore: <input type="text" name="stringa-da-utente"><BR>
+      <BR>
+      <input type="radio" name="ruolo" value="attacco"> attaccante <BR>
+      <input type="radio" name="ruolo" value="difesa"> difensore<BR>
+      <input type="radio" name="ruolo" value="centro"> centrocampista<BR>
+      <BR>
+      <input type="submit" value="Invia POST" name="etichetta-submit">
+      <!-- Nel bottone "submit", il name= serve solo se si vuole che
+           il server riceva il testo mostrato nel bottone come parametro (in tal
+           caso il parametro sarebbe "Invia POST", con chiave "etichetta-submit") -->
+
+</form>
+</td><td style="width:10em;"></td><td>
+<form method="POST" action="hello.html">
+
+   Artista: <input type="text" name="stringa-da-utente"><BR>
+      <BR>
+      <input type="radio" name="genere" value="pittura"> attaccante <BR>
+      <input type="radio" name="genere" value="poesia"> difensore<BR>
+      <input type="radio" name="genere" value="musica"> centrocampista<BR>
+      <BR>
+      <input type="submit" value="Invia POST" name="etichetta-submit">
+
+</form>
+</td>
+</tr>
+</table>
