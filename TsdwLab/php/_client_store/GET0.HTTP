@@ -1,0 +1,2 @@
+GET /form0_get.php?una_stringa=Tom HTTP/1.1
+Host: localhost:8000

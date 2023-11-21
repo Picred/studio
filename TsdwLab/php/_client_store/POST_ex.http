@@ -1,0 +1,16 @@
+POST /tsdw/hello.php HTTP/1.1
+Host: ecoanche.dmi.unict.it
+User-Agent: Mozilla/5.0 ...
+Accept: text/html
+Accept-Language: it-IT,en-US,en
+Accept-Encoding: gzip
+Connection: keep-alive
+Date: Wed, 06 Aug 2003 16:43:50 GMT
+Cache-Control: max-age=604800, must-revalidate
+Content-Type: multipart/form-data; boundary=--12345
+Content-length: 345
+
+--12345
+Qui ci sono i dati
+trasferiti dal POST
+--12345--
