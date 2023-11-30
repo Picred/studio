@@ -1,7 +1,7 @@
 <!-- escape_mid.php -->
 
-<?php $temperatura = ?>
+<?php $temperatura = 2?>
 
 Come va il tempo?<BR>
 
-<?php = 30; ?>
+<?php $temperatura = 30; ?>
