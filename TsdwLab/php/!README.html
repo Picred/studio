@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <style>
+        code {
+            background-color: lightgray;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Directory di file di esempio PHP</h2>
+
+    <h3>Per visualizzare i file in un browser</h3>
+
+    <ol>
+        <li>
+            Aprire una shell in questa cartella
+            <span>(essa &egrave; la document root del server PHP e contiene anche
+          <code class="code-style">php.ini</code>)</span
+        >
+        <p></p>
+      </li>
+      <li>
+        Lanciare: <code>php -c . -S localhost:8888</code> [potete
+        usare un altro port al posto di <code>8888</code>]
+        <p>
+          NB: per default <code>php</code> usa il <code>php.ini</code> di
+          sistema, per rendersene conto, lanciare <code>php --ini</code> e poi
+          <code>php -c . --ini</code>
+        </p><p>
+          NB: <code>php.ini</code> dovrebbe essere quello della versione di PHP utilizzata 
+          (copiarlo da <code>.../etc/php/</code>)
+        </p>
+      </li>
+      <li>
+        Puntare il browser su:
+        <a href="..">http://localhost:8888</a>
+      </li>
+    </ol>
+
+  <a href="_etc/!RegenIndex.html">Rigenerare l'indice degli esempi</a> (solo per admin)
+
+  </body>
+</html>

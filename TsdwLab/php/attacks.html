@@ -1,0 +1,53 @@
+<html>
+
+<head></head>
+
+<body>
+    <h2>Esempio di XSS</h2>
+    copiando la stringa
+    <pre> http://localhost:8888/form0.php/%22%3E%3Cscript%3Ealert('hacked')%3C/script%3E</pre> nella barra degli indirizzi (adatta il port), si attiver&agrave; il js alert('hacked'), questo perch&eacute; il php in form0.php usa <code>$_SERVER["PHP_SELF"]</code>    come <code>action</code>
+    <p>
+        il trucco &egrave; che quando PHP scrive la stringa sopra (presa da <code>$_SERVER["PHP_SELF"]</code>) in questa ci sono
+        <code>&#x22; &#x3E; </code> che vanno a chiudere la action e quello che resta &egrave; uno script js!
+    </p>
+    In generale, anche i form danno al cliente la possibilità di inserire testo che verr&agrave; probabilmente scritto con echo e generer&agrave; html
+    <p>
+        se il php non ripulisce il testo, echo potrebbe lasciare uno script js!
+    </p>
+    ma che il cliente faccia eseguire del js non si vede come possa essere un problema...
+    <h2>
+        cosa &egrave; veramente un XSS?
+    </h2>
+    <p>d'altra parte anche inserire
+        <code>&lt;script&gt;alert('ok')&lt;/script&gt;</code> in un form non filtrato porta a eseguirlo... PHP tende a scrivere il testo che l'utente ha inserito nei form, quindi... Ma se l'utente vuole eseguire del javascript, che problema c'&egrave;?
+    </p>
+    <p>
+        Forse XSS nasce se un sito malevolo ha un link verso uno "normale"? e così sfrutta il trucco?
+        <BR> v.
+        <a href="https: //sucuri.net/guides/what-is-cross-site-scripting/">
+            https: //sucuri.net/guides/what-is-cross-site-scripting/</a>
+        <BR> meglio:
+        <a href="https: //www.softwaretestinghelp.com/cross-site-scripting-xss-attack-test/">
+            https: //www.softwaretestinghelp.com/cross-site-scripting-xss-attack-test
+        </a>
+        <BR> v. anche
+        <a href="https://www.cybersecurity360.it/nuove-minacce/cross-site-scripting-come-funziona-un-attacco-xss-e-come-proteggersi/">
+            https://www.cybersecurity360.it/nuove-minacce/cross-site-scripting-come-funziona-un-attacco-xss-e-come-proteggersi
+        </a>
+        <BR>
+        <BR> XSS non coincide con CSRF (forse CSRF &egrave; un caso particolare di XSS, ma non sono del tutto sicuro) e poi
+        <BR>v. <a href="https://dev.to/maleta/cors-xss-and-csrf-with-examples-in-10-minutes-35k3">https://dev.to/maleta/cors-xss-and-csrf-with-examples-in-10-minutes-35k3</a>
+        <BR> e <a href="https://medium.com/@zhaojunemail/sop-cors-csrf-and-xss-simply-explained-with-examples-af6119156726">https://medium.com/@zhaojunemail/sop-cors-csrf-and-xss-simply-explained-with-examples-af6119156726</a>
+        <BR> e la Google search
+        <a href="https://www.google.com/search?q=xss+vs+csrf+vs+cors&oq=XSS+vs+CSRF&aqs=chrome.1.0i512l4j0i22i30l4.9757j0j4&sourceid=chrome&ie=UTF-8">https://www.google.com/search?q=xss+vs+csrf+vs+cors&oq=XSS+vs+CSRF&aqs=chrome.1.0i512l4j0i22i30l4.9757j0j4&sourceid=chrome&ie=UTF-8</a>
+        <BR>
+        <BR>poi sui problemi di protezione si veda anche il tutorial
+        <a href="https://www.w3schools.com/php/php_form_validation.asp">
+            https://www.w3schools.com/php/php_form_validation.asp</a>
+    </p>
+    <h2>Slide pronte su XSS?</h2>
+    Mi ha dato del buon materiale (con slide) Valerio Mandarino, v.
+    <a href="XSS_Mandarino.zip">XSS_Mandarino.zip</a>
+</body>
+
+</html>

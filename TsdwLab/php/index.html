@@ -1,0 +1,82 @@
+<html lang="it">
+<head>
+<style type="text/css">
+li {
+	margin-top: 0.7em;
+	margin-bottom: 0.7em;
+}
+tt {
+	color: maroon;
+	font-family: "Ubuntu Mono", "Lucida Console";
+	font-size: 94%;
+
+}
+code {
+	background-color: #E8E8E8;
+	color: blue;
+	font-family: "Ubuntu Mono", "Lucida Console";
+	font-size: 92%;
+
+}
+</style>
+<title></title>
+</head>
+
+<body>
+<ol>
+
+<!-- File indice autogenerato -->
+
+</ol>
+
+<h1>Alcuni script PHP di esempio</h1><p>Per (1-6) v. slide set 1; per (7-8) v. slide set 2</p><h3><a href="!README.html">Istruzioni per l'esecuzione</h3></a>
+<ol>
+<li><a href="oneline.php" target="_blank"><code>oneline.php</code></a> &#91;<a href="show_code.php?which=oneline.php" target="_blank"><i>src</i></a>&#93; &ndash; file php di un rigo (vedi slide)</li>
+<li><a href="primo.php" target="_blank"><code>primo.php</code></a> &#91;<a href="show_code.php?which=primo.php" target="_blank"><i>src</i></a>&#93; &ndash; primo esempio nelle slide</li>
+<div style="margin-bottom:-1.6em;"><br></div><a href="primo.html" target="_blank"><code>primo.html</code></a> &#91;<a href="show_code.php?which=primo.html" target="_blank"><i>src</i></a>&#93; &ndash; stesso contenuto di <a href="primo.php"><code>primo.php</code></a> ma&#44; a causa dell'estensione <tt>.html</tt>&#44; non va all'engine PHP e l'output &egrave; vuoto (vedi slide)
+<li><a href="embedded.php" target="_blank"><code>embedded.php</code></a> &#91;<a href="show_code.php?which=embedded.php" target="_blank"><i>src</i></a>&#93; &ndash; esempio di piccolo script PHP inserito (embedded) in html</li>
+<li><a href="pure.php" target="_blank"><code>pure.php</code></a> &#91;<a href="show_code.php?which=pure.php" target="_blank"><i>src</i></a>&#93; &ndash; genera lo stesso rendering di <a href="embedded.php"><code>embedded.php</code></a> ma solo con PHP &ldquo;puro&rdquo; senza HTML</li>
+<div style="margin-bottom:-1.6em;"><br></div><a href="pure_nl.php" target="_blank"><code>pure_nl.php</code></a> &#91;<a href="show_code.php?which=pure_nl.php" target="_blank"><i>src</i></a>&#93; &ndash; variante con new lines; genera lo stesso HTML di <a href="embedded.php"><code>embedded.php</code></a>
+<br><a href="pure3.php" target="_blank"><code>pure3.php</code></a> &#91;<a href="show_code.php?which=pure3.php" target="_blank"><i>src</i></a>&#93; &ndash; variante con 3 <tt>echo()</tt>
+&emsp13;<a href="pure1.php" target="_blank"><code>pure1.php</code></a> &#91;<a href="show_code.php?which=pure1.php" target="_blank"><i>src</i></a>&#93; &ndash; variante con un solo <tt>echo()</tt>
+<li><a href="echo_multiline.php" target="_blank"><code>echo_multiline.php</code></a> &#91;<a href="show_code.php?which=echo_multiline.php" target="_blank"><i>src</i></a>&#93; &ndash; alcune particolarit&agrave; dell'argomento di <tt>echo</tt></li>
+<li><a href="phpinfo.php" target="_blank"><code>phpinfo.php</code></a> &#91;<a href="show_code.php?which=phpinfo.php" target="_blank"><i>src</i></a>&#93; &ndash; info da interprete/server PHP su se stesso</li>
+<li><a href="escape.php" target="_blank"><code>escape.php</code></a> &#91;<a href="show_code.php?which=escape.php" target="_blank"><i>src</i></a>&#93; &ndash; escape da HTML a PHP a HTML e di nuovo PHP (preservato stato <tt>$x</tt>)</li>
+<div style="margin-bottom:-1.6em;"><br></div><a href="escape1.php" target="_blank"><code>escape1.php</code></a> &#91;<a href="show_code.php?which=escape1.php" target="_blank"><i>src</i></a>&#93; &ndash; escape da HTML a PHP a HTML e di nuovo PHP (preservato stato <tt>$x</tt>)
+<br><a href="escape_if_1.php" target="_blank"><code>escape_if_1.php</code></a> &#91;<a href="show_code.php?which=escape_if_1.php" target="_blank"><i>src</i></a>&#93; &ndash; interazione tra <tt>if</tt> php e HTML inframmezzato
+<br><a href="escape_if_2.php" target="_blank"><code>escape_if_2.php</code></a> &#91;<a href="show_code.php?which=escape_if_2.php" target="_blank"><i>src</i></a>&#93; &ndash; interazione tra <tt>if</tt> php e HTML inframmezzato
+<br><a href="escape_for.php" target="_blank"><code>escape_for.php</code></a> &#91;<a href="show_code.php?which=escape_for.php" target="_blank"><i>src</i></a>&#93; &ndash; interazione tra <tt>for</tt> php e HTML inframmezzato
+<br><a href="escape_for_1.php" target="_blank"><code>escape_for_1.php</code></a> &#91;<a href="show_code.php?which=escape_for_1.php" target="_blank"><i>src</i></a>&#93; &ndash; interazione tra <tt>for</tt> php e HTML inframmezzato
+<br><a href="escape_mix.php" target="_blank"><code>escape_mix.php</code></a> &#91;<a href="show_code.php?which=escape_mix.php" target="_blank"><i>src</i></a>&#93; &ndash; interazione tra PHP (vari costrutti) e HTML inframmezzato
+<li><a href="eqtag0.php" target="_blank"><code>eqtag0.php</code></a> &#91;<a href="show_code.php?which=eqtag0.php" target="_blank"><i>src</i></a>&#93; &ndash; uso del tag abbreviato <tt>&lt;?=</tt></li>
+<div style="margin-bottom:-1.6em;"><br></div><a href="eqtag1.php" target="_blank"><code>eqtag1.php</code></a> &#91;<a href="show_code.php?which=eqtag1.php" target="_blank"><i>src</i></a>&#93; &ndash; uso del tag abbreviato <tt>&lt;?=</tt>
+<br><a href="eqtag2.php" target="_blank"><code>eqtag2.php</code></a> &#91;<a href="show_code.php?which=eqtag2.php" target="_blank"><i>src</i></a>&#93; &ndash; uso del tag abbreviato <tt>&lt;?=</tt>
+<br><a href="eqtag_no_out.php" target="_blank"><code>eqtag_no_out.php</code></a> &#91;<a href="show_code.php?which=eqtag_no_out.php" target="_blank"><i>src</i></a>&#93; &ndash; uso &ldquo;apparente&rdquo; del tag abbreviato <tt>&lt;?=</tt>
+<li><a href="hello.html" target="_blank"><code>hello.html</code></a> &#91;<a href="show_code.php?which=hello.html" target="_blank"><i>src</i></a>&#93; &ndash; scrive <b>Hello world!</b>&emsp;NB: aprirlo nel browser equivale a inviare <code>GET /hello.html</code></li>
+<div style="margin-bottom:-1.6em;"><br></div><a href="hello_get_post.html" target="_blank"><code>hello_get_post.html</code></a> &#91;<a href="show_code.php?which=hello_get_post.html" target="_blank"><i>src</i></a>&#93; &ndash; invia <code>GET</code> o <code>POST</code> (mostrando che hanno lo stesso effetto) al path <a href="./hello.html"><code>./hello.html</code></a>
+<li><a href="form0_post.php" target="_blank"><code>form0_post.php</code></a> &#91;<a href="show_code.php?which=form0_post.php" target="_blank"><i>src</i></a>&#93; &ndash; questo script visualizza un form che invia un <code>POST</code> verso se stesso; NB: tutto lo script &egrave; attivato sia per <code>GET</code> che per <code>POST</code></li>
+<div style="margin-bottom:-1.6em;"><br></div><a href="form0_post_error_rep.php" target="_blank"><code>form0_post_error_rep.php</code></a> &#91;<a href="show_code.php?which=form0_post_error_rep.php" target="_blank"><i>src</i></a>&#93; &ndash; come <a href="form0_post.php"><code>form0_post.php</code></a> ma sopprime warning per parametro non definito nella richiesta <code>POST</code>
+<br><a href="form0_get.php" target="_blank"><code>form0_get.php</code></a> &#91;<a href="show_code.php?which=form0_get.php" target="_blank"><i>src</i></a>&#93; &ndash; come <a href="form0_post.php"><code>form0_post.php</code></a> ma il form usa <code>GET</code> senza protezione per invio dato
+<br><a href="form0_get_protect.php" target="_blank"><code>form0_get_protect.php</code></a> &#91;<a href="show_code.php?which=form0_get_protect.php" target="_blank"><i>src</i></a>&#93; &ndash; come <a href="form0_get.php"><code>form0_get.php</code></a> ma il form usa <code>GET</code> con protezione per invio dato
+<br><a href="form1_post.php" target="_blank"><code>form1_post.php</code></a> &#91;<a href="show_code.php?which=form1_post.php" target="_blank"><i>src</i></a>&#93; &ndash; script con gestione specifica per le richieste <code>POST</code>
+<br><a href="form2_post.php" target="_blank"><code>form2_post.php</code></a> &#91;<a href="show_code.php?which=form2_post.php" target="_blank"><i>src</i></a>&#93; &ndash; script pi&ugrave; complesso&#44; con gestione specifica per le richieste <code>POST</code>
+<br><a href="form_get_post.php" target="_blank"><code>form_get_post.php</code></a> &#91;<a href="show_code.php?which=form_get_post.php" target="_blank"><i>src</i></a>&#93; &ndash; script con gestioni specifiche per le richieste <code>GET</code> e per le richieste <code>POST</code>
+<li><a href="gestione_form.php" target="_blank"><code>gestione_form.php</code></a> &#91;<a href="show_code.php?which=gestione_form.php" target="_blank"><i>src</i></a>&#93; &ndash; gestione pi&ugrave; elaborata dei form</li>
+<div style="margin-bottom:-1.6em;"><br></div><a href="validate.php" target="_blank"><code>validate.php</code></a> &#91;<a href="show_code.php?which=validate.php" target="_blank"><i>src</i></a>&#93; &ndash; validazione dell'input nei form; N.B.: dopo submit/<code>POST</code> i form vengono cancellati (v. <a href="https://www.w3schools.com/php/php_form_validation.asp"><code>https://www.w3schools.com/php/php_form_validation.asp</code></a> e seguenti)<div style="margin-bottom:-2em;"><br></div>
+<br><a href="validate_keep.php" target="_blank"><code>validate_keep.php</code></a> &#91;<a href="show_code.php?which=validate_keep.php" target="_blank"><i>src</i></a>&#93; &ndash; validazione dell'input nei form; N.B.: dopo submit/<code>POST</code> nei form rimane l'input dell'utente (v. <a href="https://www.w3schools.com/php/php_form_complete.asp"><code>https://www.w3schools.com/php/php_form_complete.asp</code></a>)
+<li><a href="attacks.html" target="_blank"><code>attacks.html</code></a> &#91;<a href="show_code.php?which=attacks.html" target="_blank"><i>src</i></a>&#93; &ndash; su attacchi XSS/CSRF e CORS (solo doc; non codice per ora)</li>
+<li><a href="upload_test.html" target="_blank"><code>upload_test.html</code></a> &#91;<a href="show_code.php?which=upload_test.html" target="_blank"><i>src</i></a>&#93; &ndash; form cliente per attivare <code><u>upload.php</u></code></li>
+<div style="margin-bottom:-1.6em;"><br></div><code><u>upload.php</u></code> &#91;<a href="show_code.php?which=upload.php" target="_blank"><i>src</i></a>&#93; &ndash; (link a sinistra non cliccabile) script per validazione e upload di file dal cliente verso il server
+<li><a href="download_bin.php" target="_blank"><code>download_bin.php</code></a> &#91;<a href="show_code.php?which=download_bin.php" target="_blank"><i>src</i></a>&#93; &ndash; script per download del file binario <a href="small.mp4"><code>small.mp4</code></a> dal server sul client</li>
+<li><a href="include_ex.php" target="_blank"><code>include_ex.php</code></a> &#91;<a href="show_code.php?which=include_ex.php" target="_blank"><i>src</i></a>&#93; &ndash; illustra uso di <tt>include()</tt>&#44; includendo <a href="footer.php"><code>footer.php</code></a></li>
+<div style="margin-bottom:-1.6em;"><br></div><a href="include_once_ex.php" target="_blank"><code>include_once_ex.php</code></a> &#91;<a href="show_code.php?which=include_once_ex.php" target="_blank"><i>src</i></a>&#93; &ndash; illustra uso di <tt>include_once()</tt>&#44; includendo <a href="footer.php"><code>footer.php</code></a>
+<br><a href="include_require_ex.php" target="_blank"><code>include_require_ex.php</code></a> &#91;<a href="show_code.php?which=include_require_ex.php" target="_blank"><i>src</i></a>&#93; &ndash; fallimento di <tt>include()</tt> e <tt>require()</tt>
+<br><a href="include_require_ex_1.php" target="_blank"><code>include_require_ex_1.php</code></a> &#91;<a href="show_code.php?which=include_require_ex_1.php" target="_blank"><i>src</i></a>&#93; &ndash; fallimento di <tt>include()</tt>&#44; <tt>require()</tt> e livello di error reporting
+<li><a href="create1.php" target="_blank"><code>create1.php</code></a> &#91;<a href="show_code.php?which=create1.php" target="_blank"><i>src</i></a>&#93; &ndash; crea un nuovo file <tt>newfile.txt</tt> (esegui prima <tt>rm newfile.txt</tt>)</li>
+<div style="margin-bottom:-1.6em;"><br></div><a href="create2.php" target="_blank"><code>create2.php</code></a> &#91;<a href="show_code.php?which=create2.php" target="_blank"><i>src</i></a>&#93; &ndash; come <a href="create1.php"><code>create1.php</code></a>&#44; osservare effetto se <tt>newfile.txt</tt> esiste ed errore se <tt>newfile.txt</tt> &egrave; protetto da scrittura
+<li><a href="html_namespace_test.php" target="_blank"><code>html_namespace_test.php</code></a> &#91;<a href="show_code.php?which=html_namespace_test.php" target="_blank"><i>src</i></a>&#93; &ndash; usa i namespace definiti in <code>html_namespace.php</code></li>
+<div style="margin-bottom:-1.6em;"><br></div><code><u>html_namespace.php</u></code> &#91;<a href="show_code.php?which=html_namespace.php" target="_blank"><i>src</i></a>&#93; &ndash; (link a sinistra non cliccabile) illustra uso dei namespace
+<li><a href="imagick_draw.php" target="_blank"><code>imagick_draw.php</code></a> &#91;<a href="show_code.php?which=imagick_draw.php" target="_blank"><i>src</i></a>&#93; &ndash; demo per il modulo PHP Imagick (funziona solo dopo aver installato il modulo con <tt>pecl install imagick</tt>)</li>
+</ol>
+<br></body>
+</html>
