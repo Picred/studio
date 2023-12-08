@@ -38,3 +38,34 @@ Consegne -> *Implementare*:
 *A titolo di esempio, si potrebbe realizzare un unico file PHP che implementi tutta la business logic e invii l’HTML per visualizzare il bottone (1) e il form (2), oppure, in alternativa,  un file PHP per ciascuna funzionalità, un file HTML per il bottone (1) e un altro per il form (2).*
 
 >*Lo stesso può dirsi per le servlet: si possono avere servlet multiple o una sola servlet (che comunque sarebbe strutturata nei metodi doGet(), doPost(), …)*
+
+## Eventuali query (per esercitarsi)
+```sql
+create table books (
+    id        int auto_increment primary key,
+    isbn      varchar(15) unique not null,
+    title     varchar(128) not null,
+    author    varchar(64),
+    publisher varchar(64),
+    ranking   int,
+    year      int,
+    price     float
+);
+```
+
+
+```sql
+INSERT INTO books
+(isbn, title, author, publisher, ranking, year, price)
+VALUES
+('978-1501180254', 'The Lord of the Rings', 'J.R.R. Tolkien', 'HarperCollins', 1, 1954, 25.99),
+('978-0451531374', 'To Kill a Mockingbird', 'Harper Lee', 'Hachette Book Group', 2, 1960, 14.99),
+('978-0544160888', 'The Catcher in the Rye', 'J.D. Salinger', 'Little, Brown and Company', 3, 1951, 10.99),
+('978-0446672206', '1984', 'George Orwell', 'Penguin Random House', 4, 1949, 12.99),
+('978-0395725734', 'The Great Gatsby', 'F. Scott Fitzgerald', 'Scribner', 5, 1925, 18.99),
+('978-0446529601', 'Pride and Prejudice', 'Jane Austen', 'Penguin Classics', 6, 1813, 17.99),
+('978-0451526146', 'The Adventures of Sherlock Holmes', 'Arthur Conan Doyle', 'Random House', 7, 1892, 15.99),
+('978-0394754950', 'The Grapes of Wrath', 'John Steinbeck', 'Penguin Books', 8, 1939, 12.99),
+('978-0316014718', 'To Kill a Mockingbird', 'Harper Lee', 'Hachette Book Group', 9, 2012, 14.99),
+('978-0547875380', 'Harry Potter and the Sorcerer\'s Stone', 'J.K. Rowling', 'Scholastic Press', 10, 1997, 13.99);
+```
