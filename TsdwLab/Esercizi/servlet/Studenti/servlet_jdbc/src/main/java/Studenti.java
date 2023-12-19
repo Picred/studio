@@ -1,10 +1,8 @@
 import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.WebServlet;
+
 import java.io.*;
 import java.sql.*;
-
-import javax.swing.tree.ExpandVetoException;
-
-import jakarta.servlet.annotation.WebServlet;
 
 @WebServlet("/servlet")
 public class Studenti extends HttpServlet{
@@ -31,9 +29,9 @@ public class Studenti extends HttpServlet{
             out.print("<h1>Benvenuto sul database <code>Studenti</code></h1>");
 
             // show all students
-            String sql = "SELECT * FROM students ORDER BY matricola;";
+            String sql = "SELECT * FROM students;";
             ResultSet res = conn.createStatement().executeQuery(sql);
-
+            int matricola;
             
             if(!res.next())
                 out.print("Tabella vuota");
@@ -41,7 +39,7 @@ public class Studenti extends HttpServlet{
                 out.print("<b>matricola:</b>" + res.getString("matricola") + " ");
                 out.print("<b>nome:</b>" + res.getString("nome") + " ");
                 out.print("<b>cognome:</b>" + res.getString("cognome") + " ");
-                out.print("<b>corso_di_laurea:</b><a href='/servlet?action=details&cdl=" + res.getString("corso_di_laurea") + "'>" + res.getString("corso_di_laurea") + "</a>" +"<br>");
+                out.print("<b>corso_di_laurea:</b><a href='/servlet?action=details&cdl=" + res.getString("corso_di_laurea") + "&matricola=" + res.getString("matricola") +  "'>" + res.getString("corso_di_laurea") + "</a>" +"<br>");
             }while(res.next());
 
             // inserimento nuovo studente
@@ -57,8 +55,10 @@ public class Studenti extends HttpServlet{
             out.print("</form>");
             
 
-            if(request.getParameter("action").equals("details")){
+            if(request.getParameter("action") != null && request.getParameter("action").equals("details")){
                 String cdl = request.getParameter("cdl");
+                matricola = Integer.parseInt(request.getParameter("matricola"));
+                out.print("<h2>Informazioni sul corso con codice " + cdl + "</h2>");
                 sql = "SELECT * FROM courses WHERE codice_corso=" + cdl;
 
                 res = conn.createStatement().executeQuery(sql);
@@ -74,10 +74,32 @@ public class Studenti extends HttpServlet{
                     out.print("<b>descrizione</b>: " + descrizione + " ");
                     out.print("<b>crediti</b>: " + crediti + "<br>");
 
-                    homepage(out); //TODO check
-                }
-            }
+                    // update cdl form
+                    out.print("<h3>Aggiorna il corso di laurea dello studente " + matricola + " appena selezionato </h3>");
+                    out.print("<form action='/servlet' method='POST'>");
+                    out.print("<input type='hidden' name='action' value='update'>");
+                    out.print("<input type='hidden' name='matricola' value='" + matricola + "'>");
+                    out.print("<input type='number' name='newcdl' placeholder='Nuovo cdl'>");
+                    out.print("<input type='submit' value='Aggiorna'>");
+                    out.print("</form>");
 
+                    // delete student form
+                    out.print("<form action='/servlet' method='POST'>");
+                    out.print("<input type='hidden' name='action' value='delete'>");
+                    out.print("<input type='hidden' name='matricola' value='" + matricola + "'>");
+                    out.print("<input type='submit' value='Elimina studente'>");
+                    out.print("</form>");
+
+
+                    homepage(out);
+                } 
+            } // end if GET
+
+        } catch(SQLException e){
+            System.out.println("Error while connecting to database");
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
         } catch(Exception e){
             e.printStackTrace();
         }
@@ -108,6 +130,27 @@ public class Studenti extends HttpServlet{
                 
                 homepage(out);
             }
+
+            else if(request.getParameter("action").equals("update")){
+                // update 
+                Integer matricola = Integer.parseInt(request.getParameter("matricola"));
+                Integer newcdl = Integer.parseInt(request.getParameter("newcdl"));
+                String sql = "UPDATE students SET corso_di_laurea=" + newcdl + " WHERE matricola='" + matricola + "';";
+
+                conn.createStatement().executeUpdate(sql);
+                out.print("Aggiornamento effettuato");
+                homepage(out);
+            }
+            else if(request.getParameter("action").equals("delete")){
+                // delete
+                Integer matricola = Integer.parseInt(request.getParameter("matricola"));
+                String sql = "DELETE FROM students WHERE matricola=" + matricola;
+
+                conn.createStatement().executeUpdate(sql);
+                out.print("Eliminazione effettuata");
+                homepage(out);
+            }
+
         } catch(Exception e){
             e.printStackTrace();
         }
