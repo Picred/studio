@@ -22,7 +22,7 @@
             <option value="Country1">Country1</option>
             <option value="Country2">Country2</option>
         </select>
-        
+
         <input type="hidden" name="insert" value="insert">
         <input type="submit" value="Seleziona">
     </form>
@@ -39,6 +39,7 @@
 
     }
 }
+
 ?>
 
 </body>
