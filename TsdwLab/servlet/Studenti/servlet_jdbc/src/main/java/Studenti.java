@@ -59,14 +59,22 @@ public class Studenti extends HttpServlet{
 
             if(request.getParameter("action").equals("details")){
                 String cdl = request.getParameter("cdl");
-                String sql = "SELECT * FROM courses WHERE codice_corso=" + cdl;
+                sql = "SELECT * FROM courses WHERE codice_corso=" + cdl;
 
-                ResultSet res = conn.createStatement().executeQuery(sql);
+                res = conn.createStatement().executeQuery(sql);
 
                 while(res.next()){
-                    Integer codice_corso = Integer.parseInt(res.getInt("codice_corso"));
+                    Integer codice_corso = Integer.parseInt(res.getString("codice_corso"));
+                    String nome_corso = res.getString("nome_corso");
+                    String descrizione = res.getString("descrizione");
+                    Integer crediti = Integer.parseInt(res.getString("crediti"));
 
-                    //COntinuare a stampare i dati dalla tabella courses e inserire homepage.
+                    out.print("<b>codice_corso</b>: " + codice_corso + " ");
+                    out.print("<b>nome_corso</b>: " + nome_corso + " ");
+                    out.print("<b>descrizione</b>: " + descrizione + " ");
+                    out.print("<b>crediti</b>: " + crediti + "<br>");
+
+                    homepage(out); //TODO check
                 }
             }
 
