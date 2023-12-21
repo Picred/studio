@@ -1,7 +1,7 @@
 Consegna per la Realizzazione di una Web App CRUD in Java e PHP
 
 ### Obiettivo
-Sviluppare uno o più script PHP e pagine HTML che implementino le funzionalità "**CRUD**" (Create, Read, Update, Delete) per una nuova tabella denominata "courses".
+Sviluppare uno o più script PHP e pagine HTML che implementino le funzionalità "**CRUD**" (Create, Read, Update, Delete) per una nuova tabella denominata "University".
 
 # Richieste
 
