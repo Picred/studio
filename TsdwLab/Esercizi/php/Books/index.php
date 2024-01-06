@@ -1,123 +1,155 @@
-<!DOCTYPE HTML>
 <html>
 <body>
-<?php
-    $servername = "localhost";
-    $username = "newuser";
-    $password = "password";
-    $dbname = "exam";
+    <?php 
+        $conn = new mysqli("localhost", "root", "mysql", "Libreria");
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if($conn->connect_error)
-        die("Error connecting to myDB");
-?>
-
-<?php if($_SERVER['REQUEST_METHOD'] == 'GET'){ 
-    if($_GET['edit_isbn'] != 'true'){?>
-    <form action="index.php" method="POST">
-    <input type="submit" name="show" value="Show books">
-    <br><br>
-    
-    <input type="text" name="isbn" placeholder="isbn">
-    <input type="text" name="title" placeholder="title">
-    <input type="text" name="author" placeholder="author">
-    <input type="text" name="publisher" placeholder="publisher">
-    <br>
-    
-    <input type="number" name="ranking" placeholder="ranking">
-    <input type="number" name="year" placeholder="year">
-    <input type="number" name="price" placeholder="price">
-    <br>
-    
-    <input type="submit" name="insert" value="Insert into books">
-</form>
-
-<?php } if($_GET['edit_isbn'] == 'true'){ ?>
-    <form action="index.php" method="POST">
-    <input type="text" name="new_isbn" placeholder="new isbn">
-    <input type="hidden" name="old_isbn" value="<?= $_GET['old_isbn']; ?>">
-    <input type="submit" name="edit" value="edit isbn">
-    <input type="submit" name="remove" value="Remove record">
-    </form>
-<?php }
-}// end get section
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    
-    if(isset($_POST['show'])){
-        $sql = 'SELECT * FROM books;';
-        $result = $conn->query($sql);
-
-        if($result->num_rows>0){
-            while($row = $result->fetch_assoc()){
-                print $row['id'] . "  " . $row['isbn'] . "  " . $row['title'] . "  " . $row['author'] . "  " . $row['publisher'] . "  " . $row['ranking'] . "  " . $row['year'] . "  " . $row['price'] . "  " . '<a href=index.php?edit_isbn=true&old_isbn=' . $row['isbn'] . '>Edit this isbn</a>' . '<br>' ;
-            }
+        function homepage(){
+            echo "<br><a href='index.php'>Homepage</a>";
         }
-        print '<h3><a href="index.php">Homepage</a></h3>';
-    }
 
-    if(isset($_POST['insert'])){
-        if($_POST['isbn'] == "" && $_POST['title'] == ""){
-            print "isbn / title non possono essere nulli.<br>";
-            print '<h3><a href="index.php">Ritenta</a></h3>';
-        }
+        if(isset($_GET["id"])){
+            $id = $_GET["id"];
+            ?> <!-- Form insert books-->
+            <form action='index.php' method='POST'>
+                <h2>
+                    Aggiorna il record con id <?= $id?>
+                </h2>
+                <input type='hidden' name='id' value='<?= $id ?>'>
+
+                <input type='text' name='isbn' placeholder='isbn' required>
+                <input type='text' name='title' placeholder='title' required>
+                <input type='text' name='author' placeholder='author' required>
+                <input type='text' name='publisher' placeholder='publisher' required><br>
+                <input type='number' name='year' placeholder='year' required>
+                <input type='number' name='ranking' placeholder='ranking' required>
+                <input type='number' name='price' placeholder='price' required>
+                <input type='submit' name='update' value='Aggiorna'>
+            </form>
+
+            <br>
+            <h2>
+                Elimina il record con id <?= $id?>
+            </h2>
+            <form action='index.php' method='POST'>
+                <input type='hidden' name='id' value='<?= $id ?>'>
+                <input type='submit' name='delete' value='Elimina'>
+
+            </form>
+        <?php }
+
         else{
-            $sql = "INSERT INTO books (isbn, title, author, publisher, ranking, year, price) VALUES (";
-            $isbn = $_POST['isbn'];
-            $title = $_POST['title'];
-            $author = $_POST['author'];
-            $publisher = $_POST['publisher'];
-            $ranking = $_POST['ranking'];
-            $year = $_POST['year'];
-            $price = $_POST['price'];
+            ?> 
+            <h1> Database <code>Books</code> </h1>
 
-            $sql .= "'$isbn', '$title',";
-            
-            if($author == "") $sql .= " 'NULL',";
-            else $sql .= "'$author',";
+            <!-- Form read data-->
+            <form action='index.php' method='POST'>
+                <input type='submit' name='readdb' value='Vedi record in tabella'>
+            </form>
 
-            if($publisher == "") $sql .= " 'NULL',";
-            else $sql .= "'$publisher',";
+            <br>
 
-            if($ranking == "") $sql .= (intval(0)) . ',';
-            else $sql .= "'$ranking',";
-
-            if($year == "") $sql .= (intval(0))  . ',';
-            else $sql .= "'$year',";
+            <!-- Form insert books-->
+            <h2> Inserimento nuovo libro</h2>
+            <form action='index.php' method='POST'>
+                <input type='text' name='isbn' placeholder='isbn' required>
+                <input type='text' name='title' placeholder='title' required>
+                <input type='text' name='author' placeholder='author' required>
+                <input type='text' name='publisher' placeholder='publisher' required>
+                <input type='number' name='year' placeholder='year' required>
+                <input type='number' name='ranking' placeholder='ranking' required>
+                <input type='number' name='price' placeholder='price' required>
+                <input type='submit' name='insert' value='Inserisci in tabella'>
+            </form>
         
-            if($price == "") $sql .= (intval(0)) . ');';
-            else $sql .= "'$price');";
+<?php }
 
-            if($conn->query($sql) === TRUE)
-                print "Inserimento avvenuto";
-            else
-                print "Errore nell'inserimento<br>";
-            print '<h3><a href="index.php">Homepage</a></h3>';
+        if($_SERVER["REQUEST_METHOD"] === "POST"){
+            if(isset($_POST["readdb"])){
+                $sql = "SELECT * from books";
+                $res = $conn->query($sql);
+                
+                if($res->num_rows > 0){
+                    echo "<h3><br><br>Tabella <code>books</code></h3><br>";
+                    while($row = $res->fetch_assoc()){
+                        $id = $row["id"];
+                        $isbn = $row["isbn"];
+                        $title = $row["title"];
+                        $author = $row["author"];
+                        $publisher = $row["publisher"];
+                        $year = $row["year"];
+                        $ranking = $row["ranking"];
+                        $price = $row["price"];
 
-        }
-    }
-    if(isset($_POST['edit'])){
-        $old_isbn = $_POST['old_isbn'];
-        $new_isbn = $_POST['new_isbn'];
+                        echo "<b>id: </b> $id ";
+                        echo "<a href='index.php?id=$id'><b>isbn: </b> $isbn </a>";
+                        echo "<b>title: </b> $title ";
+                        echo "<b>author: </b> $author ";
+                        echo "<b>publisher: </b> $publisher ";
+                        echo "<b>year: </b> $year ";
+                        echo "<b>ranking: </b> $ranking ";
+                        echo "<b>price: </b> $price <br>";
+                    }
+                }else{
+                    echo "Tabella vuota";
+                    homepage();
+                }
+            }
 
-        if($new_isbn != ""){
-            print $new_isbn . "<br>";
-            $sql = "UPDATE books SET isbn='$new_isbn' WHERE isbn='$old_isbn';";
-            $conn->query($sql);
-            header("location: index.php");
-        } else {
-            print "Nuovo isbn non settato";
-            print '<h3><a href="index.php">Ricomincia</a></h3>';
-        }
-    }
+            if(isset($_POST["insert"])){
+                $isbn = $_POST["isbn"];
+                $title = $_POST["title"];
+                $author = $_POST["author"];
+                $publisher = $_POST["publisher"];
+                $year = $_POST["year"];
+                $ranking = $_POST["ranking"];
+                $price = $_POST["price"];
 
-    if(isset($_POST['remove'])){
-        $old_isbn = $_POST['old_isbn'];
-        $sql ="DELETE FROM books WHERE isbn='$old_isbn';";
-        $conn->query($sql);
-        header("location: index.php");
-    }
-} ?>
+
+                $sql = "INSERT INTO books (isbn, title, author, publisher, ranking, year, price) VALUES ('$isbn', '$title', '$author', '$publisher', $ranking, $year, $price)";
+                if($conn->query($sql)){
+                    header("location: index.php");
+                }
+                else{
+                    echo "Inserimento fallito";
+                    homepage();
+                }
+            }
+
+
+            if(isset($_POST["update"])){
+                $id = $_POST["id"];
+                $isbn = $_POST["isbn"];
+                $title = $_POST["title"];
+                $author = $_POST["author"];
+                $publisher = $_POST["publisher"];
+                $year = $_POST["year"];
+                $ranking = $_POST["ranking"];
+                $price = $_POST["price"];
+
+                $sql = "UPDATE books SET isbn='$isbn', title='$title', author='$author', publisher='$publisher', ranking=$ranking, year=$year, price=$price WHERE id=$id";
+                if($conn->query($sql)){
+                    header("location: index.php");
+                }
+                else{
+                    echo "Aggiornamento fallito";
+                    homepage();
+                }
+
+            }
+
+            if(isset($_POST["delete"])){
+                $id =$_POST["id"];
+                $sql = "DELETE FROM books WHERE id=$id";
+                if($conn->query($sql)){
+                    header("location: index.php");
+                }
+                else{
+                    echo "ELiminazione fallita";
+                    homepage();
+                }
+            }
+
+        } //end post
+    ?>
 </body>
 </html>
