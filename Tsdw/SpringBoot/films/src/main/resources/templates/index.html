@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1>Lista dei film</h1>
+
+        <div th:each="film:${films}">
+            <b>Id: </b><span th:text="${film.id}">id</span>
+            <b>Titolo: </b><span th:text="${film.titolo}">Titolo</span>
+            <b>Regista: </b><span th:text="${film.regista}">Regista</span>
+            
+            <!-- Mostra trama -->
+            <form action="/show" method="get">
+                <input type="hidden" name="id" th:value="*{film.id}">
+                <input type="submit" value="Trama">
+            </form>
+
+            <!-- Modifica -->
+            <form action="/edit" method="get">
+                <input type="hidden" name="id" th:value="${film.id}">
+                <input type="submit" value="Modifica">
+            </form>
+
+            <!-- Elimina -->
+            <form action="/delete" method="get">
+                <input type="hidden" name="id" th:value="*{film.id}">
+                <input type="submit" value="Elimina">
+            </form>
+
+        </div>
+        <a href="/create">Aggiungi un nuovo film</a>
+        <a href="/filter">Film con id maggiore di 6</a>
+
+        <br><br>
+        <footer>
+            <a href="/">Torna alla homepage</a>
+        </footer>
+    </body>
+</html>

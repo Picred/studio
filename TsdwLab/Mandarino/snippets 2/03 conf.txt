@@ -1,6 +1,0 @@
-require_once('functions/conf.php');
-
-
-
-        
-

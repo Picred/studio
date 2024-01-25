@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Lista dei team cercati per nome</h1>
+        <div th:each="team:${teams}">
+            <b>Nome Team: </b> <span th:text="${team.nome}">Nome Team</span>
+            <b>Nazione: </b> <span th:text="${team.nazione}">Nazione</span>
+            <b>Giocatori: </b> <span th:text="${team.giocatori}">Giocatori</span>
+            <br>
+
+        <h3><b><a href="/">Homepage</a></b></h3>
+    </body>
+</html>

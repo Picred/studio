@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1>Modifica il film</h1>
+        <form action="/store" method="post" th:object="${film}">
+            <input type="hidden" name="id" th:field="*{id}">
+            Titolo: <input type="text" name="titolo" th:field="*{titolo}"> <br>
+            Regista: <input type="text" name="regista" th:field="*{regista}"> <br>
+            Copie Vendute: <input type="number" name="copie_vendute" th:field="*{copie_vendute}"> <br>
+            Trama: <input type="text" name="trama" th:field="*{trama}"> <br>
+            <input type="submit">
+        </form>
+
+
+        <footer>
+            <a href="/">Torna alla homepage</a>
+        </footer>
+    </body>
+</html>

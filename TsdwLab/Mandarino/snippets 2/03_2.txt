@@ -1,3 +1,0 @@
-apache directory listing:
-
-Options Indexes FollowSymLinks Multiviews

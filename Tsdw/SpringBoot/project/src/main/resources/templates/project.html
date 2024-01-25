@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <form action="#" th:action="@{/project}" th:object="${project}" method="post">
+            Id: <input type="number" th:field="*{id}">
+            Titolo: <input type="text" th:field="*{title}">
+            Descrizione: <input type="text" th:field="*{description}">
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

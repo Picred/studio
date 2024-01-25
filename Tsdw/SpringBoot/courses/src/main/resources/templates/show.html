@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+
+<html>
+    <body>
+        <h1>Mostra dettagli corso</h1>
+        <div th:object="${course}">
+            <ul>
+                <li>
+                    <b>Descrizione del corso:</b> <span th:text="*{descrizione}">Id</span>                    
+                </li>
+            </ul>
+        </div>
+
+        <footer><a href="/">Torna alla Homepage</a></footer>
+    </body>
+</html>

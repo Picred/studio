@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1>Lista dei progetti</h1>
+        <p th:each="project:${projects}">
+            <b>Id:</b> <span th:text="${project.id}"></span>
+            <b>Nome:</b> <span th:text="${project.title}"></span>
+            <b>Descrizione:</b> <span th:text="${project.description}"></span>
+
+            <a th:href="@{/project/{id}(id=${project.id})}">Modifica questo progetto</a>
+            <a th:href="@{/project/delete/{id}(id=${project.id})}">Elimina questo progetto</a>
+        </p>
+
+        <a href="/project">Crea un nuovo progetto</a>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Modifica il team</h1>
+        <form action="/store" method="post" th:object="${team}">
+            <input type="hidden" name="id" th:field="*{id}">
+            nome:<input type="text" name="nome" th:field="*{nome}"><br>
+            giocatori:<input type="number" name="giocatori" th:field="*{giocatori}"><br>
+            nazione:<input type="text" name="nazione" th:field="*{nazione}"><br>
+            <input type="submit" value="Modifica team">
+        </form>
+
+        <h3><b><a href="/">Homepage</a></b></h3>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1>Lista di tutti i continenti</h1>
+
+        <div th:each="continent:${continents}">
+            <b>- Nome: </b> <span th:text="${continent.nome}">Nome</span>
+            <b>- Abitanti: </b> <span th:text="${continent.abitanti}">Abitanti</span>
+
+            <!-- Dettagli continente-->
+            <form action="/show" method="get" th:object="${continent}">
+                <input type="hidden" name="id" th:value="*{id}">
+                <input type="submit" value="Dettagli continente">
+            </form>
+
+
+            <!-- Modifica continente-->
+            <form action="/edit" method="get" th:object="${continent}">
+                <input type="hidden" name="id" th:value="*{id}">
+                <input type="submit" value="Modifica continente">
+            </form>
+
+            <!-- Elimina continente -->
+            <form action="/delete" method="get" th:object="${continent}">
+                <input type="hidden" name="id" th:value="*{id}">
+                <input type="submit" value="Elimina continente">
+            </form>
+            
+        </div>
+
+
+        <!-- Crea continente -->
+        <form action="/create" method="get">
+            <input type="submit" value="Aggiungi un nuovo continente">
+        </form>
+
+        <!-- Cerca continente per nome -->
+        <form action="/search" method="post">
+            <input type="text" name="nome">
+            <input type="submit" value="Cerca continente">
+        </form>
+
+
+        <!-- Elimina tutti i continenti -->
+        <form action="/deleteAll" method="get">
+            <input type="submit" value="Elimina tutti i continenti">
+        </form>
+        
+        <br>
+        <br>
+        
+        <footer>
+            <h4><a href="/">Homepage</a></h4>
+        </footer>
+    </body>
+</html>

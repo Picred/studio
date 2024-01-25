@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1>Lista di tutti i prodotti</h1>
+        <div th:each="product:${products}">
+            <b>Id:</b> <span th:text="${product.id}">Id</span>
+            <b>Nome:</b> <span th:text="${product.name}">Nome</span>
+
+            <!-- Dettagli del prodotto -->
+            <form action="/show" method="get">
+                <input type="hidden" name="id" th:value="${product.id}">
+                <input type="submit" value="Dettagli">
+            </form>
+
+        </div>
+
+        <a href="/create">Crea un nuovo prodotto</a>
+        <a href="/filter">Prodotti con prezzo > 10 </a>
+        <br>
+        <br>
+    <footer>
+        <h4><a href="/">Torna alla homepage</a></h4>
+    </footer>
+    </body>
+</html>

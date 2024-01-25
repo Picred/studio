@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Lista dei team</h1>
+        <div th:each="team:${teams}">
+            <b>Nome Team: </b> <span th:text="${team.nome}">Nome Team</span>
+            <b>Nazione: </b> <span th:text="${team.nazione}">Nazione</span>
+            <b>Giocatori: </b> <span th:text="${team.giocatori}">Giocatori</span>
+            <br>
+
+            <!-- Edit team -->
+            <form action="/edit" method="get">
+                <input type="hidden" name="id" th:value="${team.id}">
+                <input type="submit" value="Modifica team">
+            </form>
+
+            <!-- Delete team -->
+            <form action="/delete" method="get">
+                <input type="hidden" name="id" th:value="${team.id}">
+                <input type="submit" value="Elimina team">
+            </form>
+
+        </div>
+        <br>
+        <!-- Search by name -->
+        <form action="/search" method="get">
+            <input type="text" name="name" placeholder="Nome da ricercare">
+            <input type="submit" value="Cerca per nome">
+        </form>
+
+        <a href="/create">Crea un team</a>
+        <h3><b><a href="/">Homepage</a></b></h3>
+    </body>
+</html>

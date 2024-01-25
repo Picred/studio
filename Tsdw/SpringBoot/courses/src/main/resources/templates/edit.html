@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+
+<html>
+    <body>
+        <h1>Modifica il corso</h1>
+        <form action="/store" method="post" th:object="${course}">
+            <input type="text" name="nome_corso" th:field="*{nome_corso}">
+            <input type="text" name="descrizione" th:field="*{descrizione}">
+            <input type="number" name="crediti" th:field="*{crediti}">
+            <input type="hidden" name="id" th:field="*{id}">
+            <input type="submit" value="Modifica il corso">
+        </form>
+        <footer><a href="/">Torna alla Homepage</a></footer>
+    </body>
+</html>

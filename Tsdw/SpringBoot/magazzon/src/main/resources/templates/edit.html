@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1>Modifica un prodotto</h1>
+            <form action="/store" method="post" th:object="${product}">
+            Id:<input type="number" name="id" th:field="*{id}">
+            Nome:<input type="text" name="name" th:field="*{name}">
+            Quantità:<input type="number" name="quantity" th:field="*{quantity}">
+            Prezzo<input type="number" name="price" th:field="*{price}">
+            <input type="submit">
+        </form>
+        <br>
+        <br>
+    <footer>
+        <h4><a href="/">Torna alla homepage</a></h4>
+    </footer>
+    </body>
+</html>
