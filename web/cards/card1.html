@@ -15,11 +15,12 @@
         .card{
             position: relative;
             display: inline-block;
-            border: 1px solid #ddd;
+            border: 1px solid #ddd; /*bordi angoli*/
             border-radius: 24px;
             height: 250px;
             width: 200px;
             margin-left: 100px;
+            overflow: hidden;
         }
 
         .card>.header{
@@ -103,6 +104,14 @@
             padding: 4px 4px 4px 4px;
         }
 
+        .card>.footer{
+            display: block;
+            /* margin-left: 30px; */
+            margin-top: 5px;
+            text-align: center;
+        }
+
+
         .card>.footer>.likes{
             position: relative;
             display: inline-block;
@@ -131,12 +140,7 @@
             font-family: Georgia;
         }
         
-        .card>.footer{
-            display: inline-block;
-            margin-left: 30px;
-            margin-top: 5px;
-            text-align: center;
-        }
+        
 
     </style>
 </head>
@@ -148,7 +152,9 @@
 
     <div class="card">
         <div class="header">
-            <div class="propic" style="background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8dc5db0-7fe9-4e59-bc80-4365bf3cd02f/dggz7aw-5fd227f4-6b21-4988-bc20-0fcd046d9150.jpg/v1/fill/w_894,h_894,q_70,strp/mario_profile_picture_by_joshuathomas10_dggz7aw-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcL2U4ZGM1ZGIwLTdmZTktNGU1OS1iYzgwLTQzNjViZjNjZDAyZlwvZGdnejdhdy01ZmQyMjdmNC02YjIxLTQ5ODgtYmMyMC0wZmNkMDQ2ZDkxNTAuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.V8Hk3Ya-2QqJWz0GLvkA1imizZ5vzfFaQy-wHEuYyP0') center; background-size: cover;"></div>
+            <div class="photo-container">
+                <div class="propic" style="background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8dc5db0-7fe9-4e59-bc80-4365bf3cd02f/dggz7aw-5fd227f4-6b21-4988-bc20-0fcd046d9150.jpg/v1/fill/w_894,h_894,q_70,strp/mario_profile_picture_by_joshuathomas10_dggz7aw-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcL2U4ZGM1ZGIwLTdmZTktNGU1OS1iYzgwLTQzNjViZjNjZDAyZlwvZGdnejdhdy01ZmQyMjdmNC02YjIxLTQ5ODgtYmMyMC0wZmNkMDQ2ZDkxNTAuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.V8Hk3Ya-2QqJWz0GLvkA1imizZ5vzfFaQy-wHEuYyP0') center; background-size: cover;"></div>
+            </div>
         </div>
 
         <div class="professions">
@@ -165,7 +171,7 @@
         
             
         <div class="contacts">
-            <button class="subscribe" href="https://google.com">Subscribe</button>
+            <button class="subscribe">Subscribe</button>
             <button class="message">Message</button>
         </div>
 
