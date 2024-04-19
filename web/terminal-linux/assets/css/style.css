@@ -38,7 +38,7 @@ html, body{
 
 .desktop>.wallpaper>.activity-bar>a>.date{
     position: absolute;
-    width: calc(90%);
+    width: 100vw;
     text-align: center;
     cursor: pointer;
     text-decoration: none;
@@ -92,7 +92,7 @@ html, body{
 
 .desktop>.wallpaper>.terminal-windowed>.terminal-navbar{
     background: #333;
-    width: 1200px;
+    width: 100vw;
     height: 17px;
     min-height: 6px;
 }
@@ -153,7 +153,7 @@ html, body{
 .desktop>.wallpaper>.bottom-bar{
     position: absolute;
     bottom: 15px;
-    left: 50%;
+    left: 50vw;
     padding: 4px;
     background: #9f9f9f31;
     border-radius: 10px;
