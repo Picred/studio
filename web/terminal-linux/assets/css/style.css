@@ -106,15 +106,9 @@ html, body{
     width: 15px;
     height: 15px;
     border: none;
-    border-radius: 50%;
 }
 
-.desktop>.wallpaper>.terminal-windowed svg[class="close-button"]:active ~ .terminal-windowed{
-    display: none;
-}
-
-
-.desktop>.wallpaper>.terminal-windowed>.terminal-navbar>svg:hover{
+.desktop>.wallpaper>.terminal-windowed>.terminal-navbar svg:hover{
     fill: rgba(211, 0, 0, 0.607);
 }
 
