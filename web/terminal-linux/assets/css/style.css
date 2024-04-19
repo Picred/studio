@@ -69,6 +69,13 @@ html, body{
     cursor: grabbing;
 }
 
+.desktop>.wallpaper .power-off p{
+    color: white;
+    margin: 0;
+    padding-top: 5px;
+    font-family: 'Courier New';
+}
+
 
 .desktop>.wallpaper>.terminal-windowed{
     position: relative;
@@ -93,13 +100,17 @@ html, body{
 }
 
 
-.desktop>.wallpaper>.terminal-windowed>.terminal-navbar>svg{
+.desktop>.wallpaper>.terminal-windowed>.terminal-navbar svg{
     padding-left: 2px;
     fill: rgba(123, 123, 123, 0.587);
     width: 15px;
     height: 15px;
     border: none;
     border-radius: 50%;
+}
+
+.desktop>.wallpaper>.terminal-windowed svg[class="close-button"]:active ~ .terminal-windowed{
+    display: none;
 }
 
 
@@ -159,7 +170,7 @@ html, body{
     fill: rgb(22, 191, 0);
 }
 
-.desktop>.wallpaper>.bottom-bar>.terminal{
+.desktop>.wallpaper>.bottom-bar .terminal{
     fill: #fff;
 }
 
@@ -176,7 +187,7 @@ html, body{
     transform: scale(1.3);
 }
 
-.desktop>.wallpaper>.bottom-bar>.terminal:hover{
+.desktop>.wallpaper>.bottom-bar .terminal:hover{
     fill: #ffffff80;
     transform: scale(1.3);
 }
