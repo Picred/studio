@@ -3,13 +3,8 @@ html, body{
     padding: 0;
 }
 
-.desktop{
+.desktop, .wallpaper{
     position: relative;
-    width: 100vw;
-    height: 98vh;
-}
-
-.desktop>.wallpaper{
     width: 100vw;
     height: 98vh;
 }
